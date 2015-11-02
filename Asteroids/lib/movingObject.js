@@ -1,11 +1,11 @@
 
 (function (){
-  var context = canvas.getContext("2d");
 
   if (typeof Asteroids === "undefined"){
-    Asteroids = {};
+    window.Asteroids = {};
   }
-  var MovingObject = function (options) {
+  //var Asteroids = window.Asteroids
+  var MovingObject = Asteroids.MovingObject = function (options) {
     this.pos = options.pos;
     this.vel = options.vel;
     this.radius = options.radius;
@@ -18,8 +18,8 @@
     context.stroke();
   }
 
-  MovingObject.protoype.move = function (){
-    this.pos = [this.vel[0] + this.pos[0], this.vel[1] + this.pos[1];
+  MovingObject.prototype.move = function (){
+    this.pos = [this.vel[0] + this.pos[0], this.vel[1] + this.pos[1]];
   }
 
 
