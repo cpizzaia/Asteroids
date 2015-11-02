@@ -32,5 +32,26 @@ Cat.prototype.sayHelloAndName = function (hello) {
 var c = new Cat ("Cody");
 
 
-var detachedSayName = c.sayHelloAndName.myBind(c);
-detachedSayName("sux")
+function curriedSum (numArgs) {
+  var numbers = [];
+  function _curriedFunction (arg) {
+    numbers.push(arg);
+    if (numbers.length === numArgs) {
+      var sum = 0;
+      numbers.forEach(function(el){
+        sum += el;
+      });
+      return sum;
+
+    } else {
+      return _curriedFunction;
+    }
+
+
+
+  }
+  return _curriedFunction;
+}
+
+var curry = curriedSum(3);
+console.log(curry(1));
