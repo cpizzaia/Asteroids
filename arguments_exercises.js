@@ -53,5 +53,24 @@ function curriedSum (numArgs) {
   return _curriedFunction;
 }
 
-var curry = curriedSum(3);
-console.log(curry(1));
+Function.prototype.curry = function (numArgs){
+  var fn = this;
+  var args = [];
+  function _curriedFunction2(arg) {
+    args.push(arg);
+    if (args.length === numArgs) {
+      fn.apply(this, args);
+    }
+    else {
+      return _curriedFunction2;
+    }
+
+  }
+  return _curriedFunction2
+}
+
+var func = function (arg1, arg2, arg3) {
+  console.log(arg1 + " " + arg2 + " " + arg3);
+};
+
+func.curry(3)(1)(2)(4);
