@@ -12,9 +12,9 @@
     this.color = options.color;
   }
 
-  MovingObject.prototype.draw = function (radius, pos) {
+  MovingObject.prototype.draw = function () {
     context.beginPath();
-    context.arc(pos[0], pos[1], radius, 0, 2*Math.PI);
+    context.arc(this.pos[0], this.pos[1], this.radius, 0, 2*Math.PI);
     context.stroke();
   }
 

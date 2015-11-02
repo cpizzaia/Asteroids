@@ -6,7 +6,7 @@
 
 
   var COLOR = "black";
-  var RADIUS = 300;
+  var RADIUS = 10;
 
 
   var Asteroid = Asteroids.Asteroid = function (pos) {
