@@ -72,5 +72,3 @@ Function.prototype.curry = function (numArgs){
 var func = function (arg1, arg2, arg3) {
   console.log(arg1 + " " + arg2 + " " + arg3);
 };
-
-func.curry(3)(1)(2)(4);
