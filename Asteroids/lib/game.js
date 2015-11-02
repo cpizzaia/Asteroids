@@ -6,6 +6,7 @@
   var Game = Asteroids.Game = function () {
     this.asteroids = [];
     this.context = document.getElementById('canvas').getContext('2d');
+    this.addAsteroids();
   }
 
   var canvas = document.getElementById('canvas');
@@ -56,19 +57,20 @@
   }
 
   Game.prototype.moveObjects = function () {
+    this.asteroids.forEach(function (el) {
 
-
+      el.move();
+    })
+    this.draw();
   }
 
   g = new Game();
-  g.addAsteroids();
   // asteroid1 =  new Asteroids.Asteroid([100, 100]);
-  // asteroid2 =  new Asteroids.Asteroid([0, 0]);
+  // asteroid2 =  new Asteroids.Asteroid([200, 200]);
   // asteroid3 =  new Asteroids.Asteroid([100, 100]);
   // g.asteroids.push(asteroid1);
   // g.asteroids.push(asteroid2);
   // console.log(g.distance(asteroid1, asteroid2));
-  g.draw();
   // console.log(g.asteroidAlreadyOnField(asteroid3));
 
 
