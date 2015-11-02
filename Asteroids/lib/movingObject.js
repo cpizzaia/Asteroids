@@ -10,6 +10,7 @@
     this.vel = options.vel;
     this.radius = options.radius;
     this.color = options.color;
+    this.game = options.game;
   }
 
   MovingObject.prototype.draw = function () {
@@ -19,7 +20,7 @@
   }
 
   MovingObject.prototype.move = function (){
-    this.pos = [this.vel[0] + this.pos[0], this.vel[1] + this.pos[1]];
+    this.pos = this.game.wrap([this.vel[0] + this.pos[0], this.vel[1] + this.pos[1]]);
   }
 
 

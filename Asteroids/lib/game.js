@@ -18,7 +18,7 @@
     for (var i = 0; i < NUM_ASTEROIDS; i++){
       do  {
         var pos = this.randomPosition();
-        var asteroid = new Asteroids.Asteroid(pos);
+        var asteroid = new Asteroids.Asteroid(pos, this);
       } while (this.asteroidAlreadyOnField(asteroid));
         this.asteroids.push(asteroid);
     }
@@ -61,17 +61,31 @@
 
       el.move();
     })
-    this.draw();
   }
 
-  g = new Game();
-  // asteroid1 =  new Asteroids.Asteroid([100, 100]);
-  // asteroid2 =  new Asteroids.Asteroid([200, 200]);
-  // asteroid3 =  new Asteroids.Asteroid([100, 100]);
-  // g.asteroids.push(asteroid1);
-  // g.asteroids.push(asteroid2);
-  // console.log(g.distance(asteroid1, asteroid2));
-  // console.log(g.asteroidAlreadyOnField(asteroid3));
+  Game.prototype.wrap = function (pos) {
+    var res = []
+    if (pos[0] <= 0) {
+      res[0] = 800;
+    }
+    else if (pos[0] >= 800) {
+      res[0] = 0;
+    }
+    else {
+      res[0] = pos[0];
+    }
+    if (pos[1] <= 0) {
+      res[1] = 600;
+    }
+    else if (pos[1] >= 600) {
+      res[1] = 0;
+    }
+    else {
+      res[1] = pos[1];
+    }
+    return res;
+  }
+
 
 
 
